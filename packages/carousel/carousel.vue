@@ -34,7 +34,7 @@ export default {
         },
         height: {
             type: [Number, String],
-            default: 130,
+            default: 150,
         },
     },
     data() {
@@ -46,7 +46,7 @@ export default {
     },
     watch: {
         active(val) {
-            if (this.active != val) this.$emit("change", val);
+            this.$emit("change", val);
         },
         playDuration(val) {
             location.reload();

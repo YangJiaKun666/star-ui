@@ -26,9 +26,9 @@
                 :hideText="action == index"
             >{{ item.title }}</star-navbar-item>
         </star-navbar>
-        <star-carousel>
+        <star-carousel @change="onChange4">
             <star-carousel-item v-for="(item,index) of imgs" :key="index">
-                <img :src="item" fit="fill" alt />
+                <star-image :style="{ height: '100%',width: '100%'}" fit="cover" :src="item"></star-image>
             </star-carousel-item>
         </star-carousel>
     </div>
@@ -89,6 +89,9 @@ export default {
         onChange3(val) {
             console.log(val, this.action);
             this.action = val;
+        },
+        onChange4(val) {
+            console.log(val);
         },
     },
 };
