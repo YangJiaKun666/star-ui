@@ -1,0 +1,37 @@
+.star-fade-enter,
+.star-fade-leave-to {
+	opacity: 0;
+	transform: scale(0);
+}
+.star-fade-enter-to,
+.star-fade-leave {
+	opacity: 1;
+	transform: scale(1);
+}
+.star-fade-enter-active,
+.star-fade-leave-active {
+	transition: all 0.2s ease-in-out;
+}
+
+.star-stopandgo-enter {
+	transform: translateX(-100%);
+	opacity: 0;
+}
+.star-stopandgo-enter-to {
+	transform: translateX(0);
+	opacity: 1;
+}
+.star-stopandgo-leave {
+	transform: translateY(0);
+	opacity: 1;
+}
+.star-stopandgo-leave-to {
+	transform: translateY(100%);
+	opacity: 0;
+}
+.star-stopandgo-enter-active {
+	transition: all 0.25s linear 0.4s;
+}
+.star-stopandgo-leave-active {
+	transition: all 0.4s cubic-bezier(0, 1.32, 0.71, -0.28);
+}
