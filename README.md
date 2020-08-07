@@ -1,9 +1,13 @@
 # star-ui
 
-## 组件示例
-
-## 安装
+## 安装与使用
 
 ```
-npm install
+npm i @yangjiakun/star-ui
+```
+
+## 组件示例
+
+```
+...
 ```
