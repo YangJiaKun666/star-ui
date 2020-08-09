@@ -22,11 +22,9 @@ export default {
     props: {
         active: {
             type: [Number, String],
-            default: 0,
-        },
-        route: {
-            type: Boolean,
-            default: false,
+            default: () => {
+                return this.route ? this.$route.path : 0;
+            },
         },
         fixed: {
             type: Boolean,

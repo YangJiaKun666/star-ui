@@ -21,10 +21,6 @@ export default {
     name: "starNavbarItem",
     props: {
         name: [String, Number],
-        replace: {
-            type: Boolean,
-            default: false,
-        },
         iconName: String,
         hideText: {
             type: Boolean,
@@ -43,11 +39,6 @@ export default {
         this.$nextTick(() => {
             // 将父组件的curActive复制到子组件
             this.nativeActive = this.parent.curActive;
-            // 是否开启路由，开启后index将等于当前路由
-            if (this.parent.route) {
-                this.index = this.$route.path;
-                return;
-            }
             if (!this.name) {
                 // 这里是获取该元素的位置：index
                 this.index = this.parent.navbars.indexOf(this);
@@ -91,14 +82,6 @@ export default {
             }
         },
         toggleTab() {
-            if (this.parent.route) {
-                if (this.replace) {
-                    this.$route.replace(this.name);
-                } else {
-                    this.$route.push(this.name);
-                }
-                return;
-            }
             if (!this.name) {
                 this.nativeActive = this.parent.navbars.indexOf(this);
             } else {
