@@ -22,7 +22,7 @@ const components = [
     starNavbarItem,
     starCarousel,
     starCarouselItem,
-    starImage
+    starImage,
 ]
 const install = function (Vue, options = {}) {
     Vue.nextTick(() => {
@@ -55,5 +55,5 @@ export default {
     starNavbarItem,
     starCarousel,
     starCarouselItem,
-    starImage
+    starImage,
 }

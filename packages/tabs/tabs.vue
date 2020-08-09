@@ -1,6 +1,6 @@
 <template>
     <div class="tabs">
-        <div class="tabs__nav" :style="{ background }">
+        <div ref="tabNav" class="tabs__nav" :style="{ background }">
             <div
                 v-for="(tab, index) in tabs"
                 :key="index"
@@ -15,7 +15,9 @@
                 </transition>
             </div>
         </div>
-        <slot />
+        <div class="star-flex star-hide">
+            <slot />
+        </div>
     </div>
 </template>
 
@@ -47,13 +49,32 @@ export default {
         tabs() {
             this.correctActive(this.curActive || this.active);
         },
+        curActive(newVal, oldVal) {
+            this.$nextTick(() => {
+                let tabNav = this.$refs.tabNav;
+                let childs = tabNav.children;
+                if (
+                    childs[newVal].offsetLeft + childs[newVal].offsetWidth >
+                        tabNav.offsetWidth ||
+                    tabNav.scrollLeft != 0
+                ) {
+                    if (newVal > oldVal) {
+                        tabNav.scrollLeft =
+                            tabNav.scrollLeft +
+                            (childs[newVal].offsetWidth +
+                                childs[oldVal].offsetWidth);
+                    } else if (newVal < oldVal) {
+                        tabNav.scrollLeft =
+                            tabNav.scrollLeft -
+                            (childs[newVal].offsetWidth +
+                                childs[oldVal].offsetWidth);
+                    }
+                }
+            });
+        },
     },
     mounted() {
         this.correctActive(this.active);
-        this.isFirstLoaded = true;
-        this.$nextTick(() => {
-            this.isFirstLoaded = false;
-        });
     },
     methods: {
         onClick(index) {
@@ -119,6 +140,9 @@ export default {
     // 谷歌、Safari
     &__nav::-webkit-scrollbar {
         display: none;
+    }
+    .star-hide {
+        overflow: hidden;
     }
 }
 </style>
