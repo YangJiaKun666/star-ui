@@ -1,6 +1,6 @@
 {
 	"name": "@yangjiakun/star-ui",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"private": false,
 	"main": "lib/star-ui.common.js",
 	"files": [
@@ -14,7 +14,8 @@
 		"build-bundle": "vue-cli-service build --target lib --name star-ui ./packages/index.js"
 	},
 	"dependencies": {
-		"vue": "^2.6.11"
+		"vue": "^2.6.11",
+		"vue-router": "^3.4.2"
 	},
 	"devDependencies": {
 		"@vue/cli-service": "^4.4.0",

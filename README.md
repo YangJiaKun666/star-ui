@@ -53,8 +53,12 @@ readonly：是否只读，默认为false
 
 ```
 
-button 按钮
+## 查看更多示例
 
 ```
-<star-button>按钮</star-button>
+npm i
+```
+
+```
+npm run serve
 ```

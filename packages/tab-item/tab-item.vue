@@ -1,9 +1,9 @@
 <template>
-    <transition :name="leftOrRight ? 'star-slibe-left' : 'star-slibe-right'">
+    <star-transition :name="leftOrRight ? 'star-slibe-left' : 'star-slibe-right'">
         <div v-show="isSelected" class="tab__pane">
             <slot />
         </div>
-    </transition>
+    </star-transition>
 </template>
 
 <script>

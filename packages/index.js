@@ -10,6 +10,7 @@ import starNavbarItem from './navbar-item/navbar-item'
 import starCarousel from './carousel/carousel.vue'
 import starCarouselItem from './carousel-item/carousel-item'
 import starImage from './image/image.vue'
+import starTransition from './transition/transition'
 
 const components = [
     starInput,
@@ -23,6 +24,7 @@ const components = [
     starCarousel,
     starCarouselItem,
     starImage,
+    starTransition
 ]
 const install = function (Vue, options = {}) {
     Vue.nextTick(() => {
@@ -56,4 +58,5 @@ export default {
     starCarousel,
     starCarouselItem,
     starImage,
+    starTransition
 }

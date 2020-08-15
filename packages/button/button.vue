@@ -59,12 +59,16 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.star-button-box:last-child {
+    margin-bottom: 0;
+}
 .star-button-box {
     height: 40px;
     min-width: 120px;
     box-sizing: border-box;
     border-radius: 5px;
     overflow: hidden;
+    margin-bottom: 10px;
     .star-button {
         padding: 0 12px;
         height: 100%;

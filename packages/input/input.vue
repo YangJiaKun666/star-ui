@@ -29,9 +29,6 @@
                 size="18"
             ></star-icon>
         </div>
-        <div
-            :class="['star-input-outline', isFocus && !disabled && !readonly ? 'star-background' : 'star-default-line']"
-        ></div>
     </div>
 </template>
 <script>
@@ -45,7 +42,7 @@ export default {
         },
         placeholder: {
             type: String,
-            default: "write something~",
+            default: "",
         },
         maxlength: {
             type: [Number, String],
@@ -153,9 +150,10 @@ export default {
 <style lang="less" scoped>
 .star-input-box {
     width: 100%;
-    height: 50px;
-    padding: 8px 0;
+    height: 42px;
     box-sizing: border-box;
+    border-radius: 10px;
+    border: 2px solid #eaeaea;
     overflow: hidden;
     position: relative;
     margin-bottom: 10px;
@@ -170,15 +168,6 @@ export default {
         align-items: center;
         justify-content: center;
     }
-    .star-input-outline {
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        border-radius: 2px;
-        transition: all 0.2s linear;
-    }
 }
 .star-disabled::after {
     content: " ";
@@ -187,7 +176,6 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #eaeaea;
-    z-index: -1;
+    background: rgba(225, 225, 225, 0.5);
 }
 </style>

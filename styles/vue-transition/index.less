@@ -46,3 +46,21 @@
 .star-slibe-right-leave-active {
 	animation: slibe-right 0.2s ease;
 }
+// star-transform-y
+.star-transform-y-enter,
+.star-transform-y-leave-to {
+	transform: translateY(-20px);
+	opacity: 0;
+}
+.star-transform-y-enter-to,
+.star-transform-y-leave {
+	transform: translateY(0);
+	opacity: 1;
+}
+.star-transform-y-enter-active,
+.star-transform-y-leave-active {
+	transition: all 0.2s ease;
+}
+.star-transform-y-enter-active {
+	transition-delay: 0.2s;
+}
