@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <div class="index">
-            <star-transition name="star-fade">
+            <star-transition name="star-transform-y">
                 <router-view></router-view>
             </star-transition>
         </div>

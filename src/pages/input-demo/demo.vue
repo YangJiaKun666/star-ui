@@ -1,5 +1,5 @@
 <template>
-    <page-slot title="输入框组件" subTitle="star-input">
+    <page-slot title="输入框组件">
         <!-- 基本用法 -->
         <div class="card">
             <h2>基本用法</h2>
@@ -139,13 +139,13 @@ export default {
                     value: "placeholder",
                     decs: "展位文字符号。",
                     type: "string",
-                    default: "--",
+                    default: "——",
                 },
                 {
                     value: "maxlength",
                     decs: "限制最大输入长度，type为number时失效。",
                     type: "string，number",
-                    default: "--",
+                    default: "——",
                 },
                 {
                     value: "clear",

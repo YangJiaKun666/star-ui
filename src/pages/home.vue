@@ -50,13 +50,15 @@ export default {
     data() {
         return {
             defaultMenus: [
-                { name: "安装与使用", path: "" },
-                { name: "颜色主题", path: "" },
-                { name: "过渡特效", path: "" },
+                { name: "安装与使用", path: "/home/install" },
+                { name: "颜色主题", path: "/home/theme" },
             ],
             componentsMenus: [
+                { name: "image图片", path: "/home/image" },
                 { name: "input输入框", path: "/home/input" },
+                { name: "checkbox复选框", path: "/home/checkbox" },
                 { name: "button按钮", path: "/home/button" },
+                { name: "iocn图标", path: "/home/icon" },
             ],
         };
     },
@@ -97,7 +99,6 @@ export default {
             border-right: 1px solid #eaeaea;
             .menu-item {
                 cursor: pointer;
-                text-align: center;
                 line-height: 45px;
                 font-size: 16px;
                 font-weight: bold;
@@ -134,9 +135,10 @@ export default {
                 content: " ";
                 position: absolute;
                 background: #1cd8d2;
-                left: 0;
-                top: 0;
-                height: 100%;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                height: 50%;
                 width: 3px;
             }
         }

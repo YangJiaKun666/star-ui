@@ -8,7 +8,7 @@
             ]"
         >
             <transition name="star-fade">
-                <star-icon v-if="nativeValue" name="check" :color="color || '#fff'" size="12"></star-icon>
+                <star-icon v-if="nativeValue" name="check" color="#fff" size="12"></star-icon>
             </transition>
         </div>
         <div class="star-checkbox-label star-color" v-if="label">{{ label || '' }}</div>
@@ -23,7 +23,6 @@ export default {
     },
     props: {
         label: String,
-        color: String,
         size: {
             type: String,
             default: "mini",

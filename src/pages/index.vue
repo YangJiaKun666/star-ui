@@ -8,7 +8,6 @@
 .index {
     height: 100%;
     width: 100%;
-    background: linear-gradient(90deg, #1cd8d2, #93edc7);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -17,7 +16,7 @@
         font-size: 70px;
         font-weight: bold;
         letter-spacing: 8px;
-        color: #fff;
+        color: #333;
         font-style: italic;
         margin-bottom: 50px;
     }

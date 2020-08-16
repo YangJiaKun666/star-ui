@@ -1,6 +1,17 @@
 <template>
     <div class="star-image-box">
-        <img :class="['star-image',fit && `star-${fit}`]" :src="src" />
+        <img
+            v-if="!error && src"
+            :class="['star-image',fit && `star-${fit}`]"
+            :src="src"
+            @load="imageLoad"
+            @error="imageError"
+        />
+        <div class="star-image-error" v-if="error">
+            <slot name="error">
+                <span>加载失败</span>
+            </slot>
+        </div>
     </div>
 </template>
 <script>
@@ -9,6 +20,20 @@ export default {
     props: {
         src: String,
         fit: String,
+    },
+    data() {
+        return {
+            error: false,
+        };
+    },
+    methods: {
+        imageError() {
+            this.error = true;
+            this.$emit("imageError");
+        },
+        imageLoad() {
+            this.$emit("imageLoad");
+        },
     },
 };
 </script>
@@ -35,6 +60,21 @@ export default {
     }
     .star-none {
         object-fit: none;
+    }
+    .star-image-error {
+        width: 100%;
+        height: 100%;
+        background: #f2f2f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 12px;
+        box-sizing: border-box;
+        span {
+            color: #cdcdcd;
+            font-size: 14px;
+        }
     }
 }
 </style>

@@ -1,10 +1,11 @@
 <template>
-    <page-slot title="button按钮" subTitle="按钮组件，其定义了最小的宽度为120px，最大为100%">
+    <page-slot title="button按钮">
         <div class="card">
             <pre><code><!-- <===START --><span class="hljs-comment">&lt;!-- 基本用法 --&gt;</span><!-- END===> -->
     <!-- <===START --><span class="hljs-tag">&lt;<span class="hljs-name">star-button</span>&gt;基本用法&lt;/<span class="hljs-name">star-button</span>&gt;</span><!-- END===> --></code></pre>
         </div>
         <div class="card">
+            <h2>不同类型的按钮</h2>
             <p>
                 可通过定义
                 <code>type</code>属性来显示不同类型的按钮。
@@ -17,6 +18,7 @@
     </code></pre>
         </div>
         <div class="card">
+            <h2>按钮大小</h2>
             <p>
                 可通过定义
                 <code>size</code>属性来显示不同大小的按钮，默认值为
@@ -29,6 +31,7 @@
     </code></pre>
         </div>
         <div class="card">
+            <h2>其他属性</h2>
             <p>
                 设置
                 <code>round</code>为
@@ -53,8 +56,8 @@
     </code></pre>
         </div>
         <div class="card">
-            <pre><code><!-- <===START --><span class="hljs-comment">&lt;!-- 完整示例 --&gt;</span><!-- END===> -->
-    <!-- <===START --><span class="hljs-tag">&lt;<span class="hljs-name">star-button
+            <h2>完整示例</h2>
+            <pre><code><!-- <===START --><span class="hljs-tag">&lt;<span class="hljs-name">star-button
         <span class="hljs-attr">@click</span>="<span class="hljs-string">onClick</span>"
         <span class="hljs-attr">type</span>="<span class="hljs-string">primary</span>"
         <span class="hljs-attr">:loading</span>="<span class="hljs-string">loading</span>"
@@ -95,7 +98,7 @@ export default {
                     decs:
                         "类型，可定义按钮颜色，可选值为：primary、success、error、warning。",
                     type: "string",
-                    default: "--",
+                    default: "——",
                 },
                 {
                     value: "size",
@@ -113,7 +116,7 @@ export default {
                     value: "icon",
                     decs: "可使用该属性展示图标。",
                     type: "string",
-                    default: "--",
+                    default: "——",
                 },
                 {
                     value: "disabled",
