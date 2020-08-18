@@ -6,6 +6,8 @@ import home from '../pages/home.vue'
 import install from '../pages/install'
 // 颜色主题
 import theme from '../pages/theme'
+// 组件首页
+import comIndex from '../pages/com-index'
 // 输入框
 import inputText from '../pages/input-demo/demo'
 import inputCom from '../pages/input-demo/input'
@@ -21,6 +23,9 @@ import iconCom from '../pages/icon-demo/icon'
 // 复选框
 import checkboxText from '../pages/checkbox-demo/demo'
 import checkboxCom from '../pages/checkbox-demo/checkbox'
+// 导航组件
+import navbarText from '../pages/navbar-demo/demo'
+import navbarCom from '../pages/navbar-demo/navbar'
 
 Vue.use(VueRouter)
 
@@ -41,7 +46,8 @@ const routes = [
                 name: 'install',
                 meta: { name: 'star-ui' },
                 components: {
-                    explain: install
+                    explain: install,
+                    example: comIndex
                 }
             },
             {
@@ -49,7 +55,8 @@ const routes = [
                 name: 'theme',
                 meta: { name: 'star-ui' },
                 components: {
-                    explain: theme
+                    explain: theme,
+                    example: comIndex
                 }
             },
             {
@@ -95,6 +102,15 @@ const routes = [
                 components: {
                     explain: checkboxText,
                     example: checkboxCom
+                }
+            },
+            {
+                path: '/home/navbar',
+                name: 'navbar-demo',
+                meta: { name: 'star-navbar' },
+                components: {
+                    explain: navbarText,
+                    example: navbarCom
                 }
             },
         ]

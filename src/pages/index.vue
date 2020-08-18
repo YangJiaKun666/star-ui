@@ -1,7 +1,7 @@
 <template>
     <div class="index">
         <div class="index__text">WLECOME</div>
-        <star-button type="primary" icon="star" @click="$router.push('/home')">查看组件实例</star-button>
+        <star-button type="primary" icon="star" @click="$router.replace('/home')">查看组件实例</star-button>
     </div>
 </template>
 <style lang="less" scoped>

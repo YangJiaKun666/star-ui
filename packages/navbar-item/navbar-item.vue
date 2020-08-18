@@ -2,11 +2,19 @@
     <div
         @click="toggleTab"
         :style="getTabWidth"
-        :class="['star-navbar-item','star-block-click', nativeActive == index ? 'star-active-color' : 'star-color']"
+        :class="[
+            'star-navbar-item',
+            'star-block-click',
+            nativeActive == index ? 'star-active-color' : 'star-color',
+        ]"
     >
         <transition name="star-stopandgo">
             <slot name="icon">
-                <star-icon v-if="iconName" :name="iconName" size="24"></star-icon>
+                <star-icon
+                    v-if="iconName"
+                    :name="iconName"
+                    size="18"
+                ></star-icon>
             </slot>
         </transition>
         <transition name="star-stopandgo">
@@ -18,7 +26,7 @@
 </template>
 <script>
 export default {
-    name: "starNavbarItem",
+    name: 'starNavbarItem',
     props: {
         name: [String, Number],
         iconName: String,
@@ -32,64 +40,64 @@ export default {
             parent: null,
             nativeActive: null,
             index: null,
-        };
+        }
     },
     mounted() {
-        this.findParent("starNavbar"); // 找到对应的父元素
+        this.findParent('starNavbar') // 找到对应的父元素
         this.$nextTick(() => {
             // 将父组件的curActive复制到子组件
-            this.nativeActive = this.parent.curActive;
+            this.nativeActive = this.parent.curActive
             if (!this.name) {
                 // 这里是获取该元素的位置：index
-                this.index = this.parent.navbars.indexOf(this);
+                this.index = this.parent.navbars.indexOf(this)
             } else {
-                this.index = this.name;
+                this.index = this.name
             }
-        });
+        })
     },
     computed: {
         // 父组件的curActive,方便监听
         parentActive() {
-            let val = "";
+            let val = ''
             val =
-                this.parent != null ? this.parent.curActive : this.nativeActive;
-            return val;
+                this.parent != null ? this.parent.curActive : this.nativeActive
+            return val
         },
         getTabWidth() {
             if (this.parent != null) {
-                let W = 100 / this.parent.navbars.length;
-                return `width: ${W}%`;
+                let W = 100 / this.parent.navbars.length
+                return `width: ${W}%`
             }
         },
     },
     watch: {
         nativeActive(val) {
-            this.parent.curActive = val;
+            this.parent.curActive = val
         },
         parentActive(val) {
-            this.nativeActive = val;
+            this.nativeActive = val
         },
     },
     methods: {
         findParent(name) {
-            let parent = this.$parent;
+            let parent = this.$parent
             while (parent) {
                 if (parent.$options.name == name) {
-                    this.parent = parent;
-                    break;
+                    this.parent = parent
+                    break
                 }
-                parent = parent.$parent;
+                parent = parent.$parent
             }
         },
         toggleTab() {
             if (!this.name) {
-                this.nativeActive = this.parent.navbars.indexOf(this);
+                this.nativeActive = this.parent.navbars.indexOf(this)
             } else {
-                this.nativeActive = this.name;
+                this.nativeActive = this.name
             }
         },
     },
-};
+}
 </script>
 <style lang="less" scoped>
 .star-navbar-item {

@@ -34,7 +34,10 @@
             </div>
             <div class="phone-box">
                 <div class="phone">
-                    <div class="header">{{ $route.meta.name }}</div>
+                    <div class="header">
+                        <star-icon class="back-btn" v-if="$route.meta.name != 'star-ui'" @click="$router.go(-1)" name="angle-left" size="22" color="#999" />
+                        {{ $route.meta.name }}
+                    </div>
                     <div class="body scoll-bar">
                         <star-transition name="star-transform-y">
                             <router-view name="example"></router-view>
@@ -59,6 +62,7 @@ export default {
                 { name: "checkbox复选框", path: "/home/checkbox" },
                 { name: "button按钮", path: "/home/button" },
                 { name: "iocn图标", path: "/home/icon" },
+                { name: "navbar导航", path: "/home/navbar" },
             ],
         };
     },
@@ -104,28 +108,15 @@ export default {
                 font-weight: bold;
                 position: relative;
                 transition: all 0.2s ease;
-            }
-            .menu-item::after {
-                content: " ";
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                width: 0;
-                height: 2px;
-                transform: translateX(-50%);
-                transition: all 0.2s ease;
+                margin-bottom: 6px;
             }
             .menu-item:hover {
-                background: rgba(0, 0, 0, 0.05);
                 color: #1cd8d2;
+                background: rgba(0, 0, 0, 0.05);
                 border-radius: 5px;
             }
             .menu-item:active {
-                transform: scale(0.9);
-            }
-            .menu-item:hover::after {
-                width: 100%;
-                background: #1cd8d2;
+                transform: scale(0.95);
             }
             .menu-active {
                 position: relative;
@@ -170,6 +161,7 @@ export default {
                     font-size: 16px;
                     font-weight: bold;
                     color: #333;
+                    position: relative;
                 }
                 .body {
                     height: calc(100% - 50px);
@@ -194,5 +186,12 @@ export default {
 }
 .scoll-bar::-webkit-scrollbar {
     width: 0px;
+}
+.back-btn {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 </style>
