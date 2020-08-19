@@ -1,66 +1,66 @@
 // 淡入淡出
 .star-fade-enter,
 .star-fade-leave-to {
-	opacity: 0;
-	transform: scale(0);
+    opacity: 0;
+    transform: scale(0);
 }
 .star-fade-enter-to,
 .star-fade-leave {
-	opacity: 1;
-	transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
 }
 .star-fade-enter-active,
 .star-fade-leave-active {
-	transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 // 从上往下消失，从左到右进入
 .star-stopandgo-enter {
-	transform: translateX(-100%);
-	opacity: 0;
+    transform: translateX(-100%);
+    opacity: 0;
 }
 .star-stopandgo-enter-to {
-	transform: translateX(0);
-	opacity: 1;
+    transform: translateX(0);
+    opacity: 1;
 }
 .star-stopandgo-leave {
-	transform: translateY(0);
-	opacity: 1;
+    transform: translateY(0);
+    opacity: 1;
 }
 .star-stopandgo-leave-to {
-	transform: translateY(100%);
-	opacity: 0;
+    transform: translateY(100%);
+    opacity: 0;
 }
 .star-stopandgo-enter-active {
-	transition: all 0.25s linear 0.4s;
+    transition: all 0.25s linear 0.4s;
 }
 .star-stopandgo-leave-active {
-	transition: all 0.4s cubic-bezier(0, 1.32, 0.71, -0.28);
+    transition: all 0.4s cubic-bezier(0, 1.32, 0.71, -0.28);
 }
 // 向左滑动
 .star-slibe-left-enter-active,
 .star-slibe-left-leave-active {
-	animation: slibe-left 0.2s ease;
+    animation: slibe-left 0.2s ease;
 }
 //向右滑动
 .star-slibe-right-enter-active,
 .star-slibe-right-leave-active {
-	animation: slibe-right 0.2s ease;
+    animation: slibe-right 0.2s ease;
 }
 // star-transform-y
 .star-transform-y-enter,
 .star-transform-y-leave-to {
-	transform: translateY(-20px);
-	opacity: 0;
+    transform: translateY(-20px);
+    opacity: 0;
 }
 .star-transform-y-enter-to,
 .star-transform-y-leave {
-	transform: translateY(0);
-	opacity: 1;
+    transform: translateY(0);
+    opacity: 1;
 }
 .star-transform-y-enter-active,
 .star-transform-y-leave-active {
-	transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 .star-transform-y-enter-active {
-	transition-delay: 0.2s;
+    transition-delay: 0.2s;
 }

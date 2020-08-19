@@ -8,6 +8,9 @@ import install from '../pages/install'
 import theme from '../pages/theme'
 // 组件首页
 import comIndex from '../pages/com-index'
+// transition过渡
+import transitionText from '../pages/transition-demo/demo'
+import transitionCom from '../pages/transition-demo/transition'
 // 输入框
 import inputText from '../pages/input-demo/demo'
 import inputCom from '../pages/input-demo/input'
@@ -26,6 +29,9 @@ import checkboxCom from '../pages/checkbox-demo/checkbox'
 // 导航组件
 import navbarText from '../pages/navbar-demo/demo'
 import navbarCom from '../pages/navbar-demo/navbar'
+// 分类栏组件
+import tabText from '../pages/tab-demo/demo'
+import tabCom from '../pages/tab-demo/tab'
 
 Vue.use(VueRouter)
 
@@ -33,7 +39,7 @@ const routes = [
     {
         path: '/',
         name: 'index',
-        component: index
+        component: index,
     },
     {
         path: '/home',
@@ -47,8 +53,8 @@ const routes = [
                 meta: { name: 'star-ui' },
                 components: {
                     explain: install,
-                    example: comIndex
-                }
+                    example: comIndex,
+                },
             },
             {
                 path: '/home/theme',
@@ -56,8 +62,17 @@ const routes = [
                 meta: { name: 'star-ui' },
                 components: {
                     explain: theme,
-                    example: comIndex
-                }
+                    example: comIndex,
+                },
+            },
+            {
+                path: '/home/transition',
+                name: 'transition-demo',
+                meta: { name: 'star-transition' },
+                components: {
+                    explain: transitionText,
+                    example: transitionCom,
+                },
             },
             {
                 path: '/home/input',
@@ -65,8 +80,8 @@ const routes = [
                 meta: { name: 'star-input' },
                 components: {
                     explain: inputText,
-                    example: inputCom
-                }
+                    example: inputCom,
+                },
             },
             {
                 path: '/home/button',
@@ -74,8 +89,8 @@ const routes = [
                 meta: { name: 'star-button' },
                 components: {
                     explain: buttonText,
-                    example: buttonCom
-                }
+                    example: buttonCom,
+                },
             },
             {
                 path: '/home/image',
@@ -83,8 +98,8 @@ const routes = [
                 meta: { name: 'star-image' },
                 components: {
                     explain: imageText,
-                    example: imageCom
-                }
+                    example: imageCom,
+                },
             },
             {
                 path: '/home/icon',
@@ -92,8 +107,8 @@ const routes = [
                 meta: { name: 'star-icon' },
                 components: {
                     explain: iconText,
-                    example: iconCom
-                }
+                    example: iconCom,
+                },
             },
             {
                 path: '/home/checkbox',
@@ -101,8 +116,8 @@ const routes = [
                 meta: { name: 'star-checkbox' },
                 components: {
                     explain: checkboxText,
-                    example: checkboxCom
-                }
+                    example: checkboxCom,
+                },
             },
             {
                 path: '/home/navbar',
@@ -110,16 +125,24 @@ const routes = [
                 meta: { name: 'star-navbar' },
                 components: {
                     explain: navbarText,
-                    example: navbarCom
-                }
+                    example: navbarCom,
+                },
             },
-        ]
-    }
+            {
+                path: '/home/tabbar',
+                name: 'tabbar-demo',
+                meta: { name: 'star-tab' },
+                components: {
+                    explain: tabText,
+                    example: tabCom,
+                },
+            },
+        ],
+    },
 ]
 
 const router = new VueRouter({
-    routes
+    routes,
 })
-
 
 export default router

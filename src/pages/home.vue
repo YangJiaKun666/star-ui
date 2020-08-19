@@ -2,10 +2,19 @@
     <div class="home">
         <div class="query-header star-background star-flex">
             <div class="text">
-                <star-icon name="star-half-o" size="26" :style="{ marginRight: '10px' }"></star-icon>
+                <star-icon
+                    name="star-half-o"
+                    size="26"
+                    :style="{ marginRight: '10px' }"
+                ></star-icon>
                 <span>star-ui</span>
             </div>
-            <star-icon class="hover" name="github" size="34" color="#fff"></star-icon>
+            <star-icon
+                class="hover"
+                name="github"
+                size="34"
+                color="#fff"
+            ></star-icon>
         </div>
         <div class="layut">
             <div class="left-menu scoll-bar">
@@ -17,7 +26,9 @@
                     v-for="item in defaultMenus"
                     :key="item.name"
                     @click="goPage(item.path)"
-                >{{ item.name }}</div>
+                >
+                    {{ item.name }}
+                </div>
                 <h2>组件</h2>
                 <div
                     class="menu-item"
@@ -25,7 +36,9 @@
                     v-for="item in componentsMenus"
                     :key="item.name"
                     @click="goPage(item.path)"
-                >{{ item.name }}</div>
+                >
+                    {{ item.name }}
+                </div>
             </div>
             <div class="right-content scoll-bar">
                 <star-transition name="star-transform-y">
@@ -35,7 +48,14 @@
             <div class="phone-box">
                 <div class="phone">
                     <div class="header">
-                        <star-icon class="back-btn" v-if="$route.meta.name != 'star-ui'" @click="$router.go(-1)" name="angle-left" size="22" color="#999" />
+                        <star-icon
+                            class="back-btn"
+                            v-if="$route.meta.name != 'star-ui'"
+                            @click="$router.go(-1)"
+                            name="angle-left"
+                            size="22"
+                            color="#999"
+                        />
                         {{ $route.meta.name }}
                     </div>
                     <div class="body scoll-bar">
@@ -53,26 +73,28 @@ export default {
     data() {
         return {
             defaultMenus: [
-                { name: "安装与使用", path: "/home/install" },
-                { name: "颜色主题", path: "/home/theme" },
+                { name: '安装与使用', path: '/home/install' },
+                { name: '颜色主题', path: '/home/theme' },
             ],
             componentsMenus: [
-                { name: "image图片", path: "/home/image" },
-                { name: "input输入框", path: "/home/input" },
-                { name: "checkbox复选框", path: "/home/checkbox" },
-                { name: "button按钮", path: "/home/button" },
-                { name: "iocn图标", path: "/home/icon" },
-                { name: "navbar导航", path: "/home/navbar" },
+                { name: 'transition内置过渡', path: '/home/transition' },
+                { name: 'image图片', path: '/home/image' },
+                { name: 'input输入框', path: '/home/input' },
+                { name: 'checkbox复选框', path: '/home/checkbox' },
+                { name: 'button按钮', path: '/home/button' },
+                { name: 'iocn图标', path: '/home/icon' },
+                { name: 'navbar导航', path: '/home/navbar' },
+                { name: 'tabbar分类栏', path: '/home/tabbar' },
             ],
-        };
+        }
     },
     methods: {
         goPage(path) {
-            if (this.$route.path == path || !path) return;
-            this.$router.replace(path);
+            if (this.$route.path == path || !path) return
+            this.$router.replace(path)
         },
     },
-};
+}
 </script>
 <style lang="less" scoped>
 .home {
@@ -123,7 +145,7 @@ export default {
                 color: #1cd8d2 !important;
             }
             .menu-active::before {
-                content: " ";
+                content: ' ';
                 position: absolute;
                 background: #1cd8d2;
                 right: 0;
