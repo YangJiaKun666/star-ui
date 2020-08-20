@@ -77,7 +77,7 @@ export default {
                 },
                 {
                     value: 'duration',
-                    decs: '提示框展示的时间',
+                    decs: '提示框展示的时间，以毫秒为单位（ms）',
                     type: 'string，number',
                     default: 2000,
                 },
