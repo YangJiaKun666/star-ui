@@ -32,6 +32,9 @@ import navbarCom from '../pages/navbar-demo/navbar'
 // 分类栏组件
 import tabText from '../pages/tab-demo/demo'
 import tabCom from '../pages/tab-demo/tab'
+// 消息通知组件
+import noticeText from '../pages/notice-demo/demo'
+import noticeCom from '../pages/notice-demo/notice'
 
 Vue.use(VueRouter)
 
@@ -135,6 +138,15 @@ const routes = [
                 components: {
                     explain: tabText,
                     example: tabCom,
+                },
+            },
+            {
+                path: '/home/notice',
+                name: 'notice-demo',
+                meta: { name: 'star-notice' },
+                components: {
+                    explain: noticeText,
+                    example: noticeCom,
                 },
             },
         ],

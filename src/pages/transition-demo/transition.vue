@@ -42,7 +42,11 @@ export default {
             input.value = name
             input.select()
             document.execCommand('Copy')
-            alert('复制成功')
+            this.$notice({
+                message: '复制成功',
+                type: 'success',
+                target: '.phone > .body',
+            })
         },
     },
 }

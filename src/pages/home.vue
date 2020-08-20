@@ -85,6 +85,7 @@ export default {
                 { name: 'iocn图标', path: '/home/icon' },
                 { name: 'navbar导航', path: '/home/navbar' },
                 { name: 'tabbar分类栏', path: '/home/tabbar' },
+                { name: 'notice消息通知', path: '/home/notice' },
             ],
         }
     },
