@@ -71,7 +71,7 @@ export default {
                 {
                     value: 'target',
                     decs:
-                        '提示框挂载的DON元素，可传入class、id，但请注意元素的唯一性',
+                        '提示框挂载的DON元素，可传入class、id，也可使用 parentDOM > childDOM 这种格式，但请注意元素的唯一性',
                     type: 'string',
                     default: 'body',
                 },
