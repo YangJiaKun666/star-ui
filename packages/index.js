@@ -1,4 +1,5 @@
-import '../styles/index.less'
+import '../styles/index.less' // 全局样式文件
+// 普通组件
 import starInput from './input/input.vue'
 import starIcon from './icon/icon.vue'
 import starButton from './button/button.vue'
@@ -11,6 +12,9 @@ import starCarousel from './carousel/carousel.vue'
 import starCarouselItem from './carousel-item/carousel-item.vue'
 import starImage from './image/image.vue'
 import starTransition from './transition/transition.vue'
+import starPopup from './popup/popup.vue'
+
+// 消息提示，请提示，二次确认弹框
 import starNotice from './notice/notice.js'
 
 const components = [
@@ -26,6 +30,7 @@ const components = [
     starCarouselItem,
     starImage,
     starTransition,
+    starPopup,
 ]
 const install = function(Vue, options = {}) {
     Vue.nextTick(() => {
@@ -61,4 +66,5 @@ export default {
     starCarouselItem,
     starImage,
     starTransition,
+    starPopup,
 }

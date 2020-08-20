@@ -16,7 +16,7 @@
                 >
                     {{ tab.title }}
                 </div>
-                <transition name="star-fade">
+                <transition name="star-fade-scale">
                     <div
                         v-if="index == curActive"
                         class="tab__line star-background"

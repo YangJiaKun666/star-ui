@@ -86,6 +86,7 @@ export default {
                 { name: 'navbar导航', path: '/home/navbar' },
                 { name: 'tabbar分类栏', path: '/home/tabbar' },
                 { name: 'notice消息通知', path: '/home/notice' },
+                { name: 'popup弹出层', path: '/home/popup' },
             ],
         }
     },

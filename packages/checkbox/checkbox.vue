@@ -1,50 +1,60 @@
 <template>
-    <div :class="['star-checkbox', 'star-flex', size && `star-${size}`]" @click="toggleCheck">
+    <div
+        :class="['star-checkbox', 'star-flex', size && `star-${size}`]"
+        @click="toggleCheck"
+    >
         <div
             :class="[
-            'star-checkbox-box',
-            nativeValue && ['star-background','star-checked'],
-            round && 'star-round'
+                'star-checkbox-box',
+                nativeValue && ['star-background', 'star-checked'],
+                round && 'star-round',
             ]"
         >
-            <transition name="star-fade">
-                <star-icon v-if="nativeValue" name="check" color="#fff" size="12"></star-icon>
+            <transition name="star-fade-scale">
+                <star-icon
+                    v-if="nativeValue"
+                    name="check"
+                    color="#fff"
+                    size="12"
+                ></star-icon>
             </transition>
         </div>
-        <div class="star-checkbox-label star-color" v-if="label">{{ label || '' }}</div>
+        <div class="star-checkbox-label star-color" v-if="label">
+            {{ label || '' }}
+        </div>
     </div>
 </template>
 <script>
 export default {
-    name: "starCheckbox",
+    name: 'starCheckbox',
     model: {
-        prop: "isCheck",
-        event: "change",
+        prop: 'isCheck',
+        event: 'change',
     },
     props: {
         label: String,
         size: {
             type: String,
-            default: "mini",
+            default: 'mini',
         },
         round: Boolean,
     },
     data() {
         return {
             nativeValue: false,
-        };
+        }
     },
     mounted() {
-        this.nativeValue = this.$attrs.isCheck;
+        this.nativeValue = this.$attrs.isCheck
     },
     methods: {
         toggleCheck() {
-            this.nativeValue = !this.nativeValue;
-            this.$attrs.isCheck = this.nativeValue;
-            this.$emit("change", this.$attrs.isCheck);
+            this.nativeValue = !this.nativeValue
+            this.$attrs.isCheck = this.nativeValue
+            this.$emit('change', this.$attrs.isCheck)
         },
     },
-};
+}
 </script>
 <style lang="less" scoped>
 .star-checkbox {

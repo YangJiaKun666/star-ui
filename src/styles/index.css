@@ -12,6 +12,8 @@
 .com-p {
     padding: 0 12px;
     font-size: 14px;
+    margin: 0;
+    line-height: 45px;
 }
 h1,
 h2,

@@ -5,7 +5,7 @@
             <p>
                 这里提供到了<code>star-transition</code>这个组件，原理是简单的封装了<code>vue</code>提供的<code>transition</code>标签，使用此组件传入<code>name</code>属性即可使用对应的过渡效果
             </p>
-            <pre><code>&lt;<span class="hljs-name">star-transition</span> <span class="hljs-attr">name</span>="<span class="hljs-string">star-fade</span>"&gt;
+            <pre><code>&lt;<span class="hljs-name">star-transition</span> <span class="hljs-attr">name</span>="<span class="hljs-string">star-fade-scale</span>"&gt;
         ··· <span class="hljs-comment">&lt;!-- 这里是绑定了v-if、v-show的元素 --&gt;</span>
      &lt;/<span class="hljs-name">star-transition</span>&gt;</code></pre>
             <p>Tips：此组件暂时只能用于单个元素</p>

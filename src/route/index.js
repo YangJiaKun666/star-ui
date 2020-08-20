@@ -26,15 +26,18 @@ import iconCom from '../pages/icon-demo/icon'
 // 复选框
 import checkboxText from '../pages/checkbox-demo/demo'
 import checkboxCom from '../pages/checkbox-demo/checkbox'
-// 导航组件
+// 导航
 import navbarText from '../pages/navbar-demo/demo'
 import navbarCom from '../pages/navbar-demo/navbar'
-// 分类栏组件
+// 分类栏
 import tabText from '../pages/tab-demo/demo'
 import tabCom from '../pages/tab-demo/tab'
-// 消息通知组件
+// 消息通知
 import noticeText from '../pages/notice-demo/demo'
 import noticeCom from '../pages/notice-demo/notice'
+// 弹出层
+import popupText from '../pages/popup-demo/demo'
+import popupCom from '../pages/popup-demo/popup'
 
 Vue.use(VueRouter)
 
@@ -147,6 +150,15 @@ const routes = [
                 components: {
                     explain: noticeText,
                     example: noticeCom,
+                },
+            },
+            {
+                path: '/home/popup',
+                name: 'popup-demo',
+                meta: { name: 'star-popup' },
+                components: {
+                    explain: popupText,
+                    example: popupCom,
                 },
             },
         ],

@@ -29,6 +29,7 @@ export default {
         return {
             data: [
                 { name: 'star-fade', value: true },
+                { name: 'star-fade-scale', value: true },
                 { name: 'star-stopandgo', value: true },
                 { name: 'star-slibe-left', value: true },
                 { name: 'star-slibe-right', value: true },
