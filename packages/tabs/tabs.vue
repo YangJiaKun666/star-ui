@@ -7,11 +7,20 @@
                 ref="tabs"
                 @click="onClick(index)"
                 class="tab"
-                :class="{'tab--active': index == curActive}"
+                :class="{ 'tab--active': index == curActive }"
             >
-                <div :class="index == curActive ? 'star-active-color' : 'star-color'">{{tab.title}}</div>
-                <transition name="star-fade">
-                    <div v-if="index == curActive" class="tab__line star-background"></div>
+                <div
+                    :class="
+                        index == curActive ? 'star-active-color' : 'star-color'
+                    "
+                >
+                    {{ tab.title }}
+                </div>
+                <transition name="star-fade-scale">
+                    <div
+                        v-if="index == curActive"
+                        class="tab__line star-background"
+                    ></div>
                 </transition>
             </div>
         </div>
@@ -23,9 +32,9 @@
 
 <script>
 export default {
-    name: "starTabs",
+    name: 'starTabs',
     model: {
-        prop: "active",
+        prop: 'active',
     },
     props: {
         active: {
@@ -38,21 +47,21 @@ export default {
         return {
             tabs: [],
             curActive: null,
-        };
+        }
     },
     watch: {
         active(val) {
             if (val !== this.curActive) {
-                this.correctActive(val);
+                this.correctActive(val)
             }
         },
         tabs() {
-            this.correctActive(this.curActive || this.active);
+            this.correctActive(this.curActive || this.active)
         },
         curActive(newVal, oldVal) {
             this.$nextTick(() => {
-                let tabNav = this.$refs.tabNav;
-                let childs = tabNav.children;
+                let tabNav = this.$refs.tabNav
+                let childs = tabNav.children
                 if (
                     childs[newVal].offsetLeft + childs[newVal].offsetWidth >
                         tabNav.offsetWidth ||
@@ -62,42 +71,45 @@ export default {
                         tabNav.scrollLeft =
                             tabNav.scrollLeft +
                             (childs[newVal].offsetWidth +
-                                childs[oldVal].offsetWidth);
+                                childs[oldVal].offsetWidth)
                     } else if (newVal < oldVal) {
                         tabNav.scrollLeft =
                             tabNav.scrollLeft -
                             (childs[newVal].offsetWidth +
-                                childs[oldVal].offsetWidth);
+                                childs[oldVal].offsetWidth)
                     }
                 }
-            });
+            })
         },
     },
     mounted() {
-        this.correctActive(this.active);
+        this.correctActive(this.active)
     },
     methods: {
         onClick(index) {
-            const { title } = this.tabs[index];
-            this.setCurActive(index);
-            this.$emit("click", { index, title });
+            const { title } = this.tabs[index]
+            this.setCurActive(index)
+            this.$emit('click', { index, title })
         },
         correctActive(active) {
-            active = +active;
-            const exist = this.tabs.some((tab) => tab.index === active);
-            const defaultActive = (this.tabs[0] || {}).index || 0;
-            this.setCurActive(exist ? active : defaultActive);
+            active = +active
+            const exist = this.tabs.some((tab) => tab.index === active)
+            const defaultActive = (this.tabs[0] || {}).index || 0
+            this.setCurActive(exist ? active : defaultActive)
         },
         setCurActive(active) {
             if (active !== this.curActive) {
                 if (this.curActive !== null) {
-                    this.$emit("change", active, this.tabs[active].title);
+                    this.$emit('change', {
+                        active,
+                        title: this.tabs[active].title,
+                    })
                 }
-                this.curActive = active;
+                this.curActive = active
             }
         },
     },
-};
+}
 </script>
 <style lang="less" scoped>
 .tab {

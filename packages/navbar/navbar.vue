@@ -23,7 +23,7 @@ export default {
         active: {
             type: [Number, String],
             default: () => {
-                return this.route ? this.$route.path : 0;
+                return 0;
             },
         },
         fixed: {

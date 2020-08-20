@@ -2,10 +2,19 @@
     <div class="home">
         <div class="query-header star-background star-flex">
             <div class="text">
-                <star-icon name="star-half-o" size="26" :style="{ marginRight: '10px' }"></star-icon>
+                <star-icon
+                    name="star-half-o"
+                    size="26"
+                    :style="{ marginRight: '10px' }"
+                ></star-icon>
                 <span>star-ui</span>
             </div>
-            <star-icon class="hover" name="github" size="34" color="#fff"></star-icon>
+            <star-icon
+                class="hover"
+                name="github"
+                size="34"
+                color="#fff"
+            ></star-icon>
         </div>
         <div class="layut">
             <div class="left-menu scoll-bar">
@@ -17,7 +26,9 @@
                     v-for="item in defaultMenus"
                     :key="item.name"
                     @click="goPage(item.path)"
-                >{{ item.name }}</div>
+                >
+                    {{ item.name }}
+                </div>
                 <h2>组件</h2>
                 <div
                     class="menu-item"
@@ -25,7 +36,9 @@
                     v-for="item in componentsMenus"
                     :key="item.name"
                     @click="goPage(item.path)"
-                >{{ item.name }}</div>
+                >
+                    {{ item.name }}
+                </div>
             </div>
             <div class="right-content scoll-bar">
                 <star-transition name="star-transform-y">
@@ -34,7 +47,17 @@
             </div>
             <div class="phone-box">
                 <div class="phone">
-                    <div class="header">{{ $route.meta.name }}</div>
+                    <div class="header">
+                        <star-icon
+                            class="back-btn"
+                            v-if="$route.meta.name != 'star-ui'"
+                            @click="$router.go(-1)"
+                            name="angle-left"
+                            size="22"
+                            color="#999"
+                        />
+                        {{ $route.meta.name }}
+                    </div>
                     <div class="body scoll-bar">
                         <star-transition name="star-transform-y">
                             <router-view name="example"></router-view>
@@ -50,25 +73,38 @@ export default {
     data() {
         return {
             defaultMenus: [
-                { name: "安装与使用", path: "/home/install" },
-                { name: "颜色主题", path: "/home/theme" },
+                { name: '安装与使用', path: '/home/install' },
+                { name: '颜色主题', path: '/home/theme' },
             ],
             componentsMenus: [
+<<<<<<< HEAD
                 { name: "input输入框", path: "/home/input" },
                 { name: "checkbox复选框", path: "/home/checkbox" },
                 { name: "button按钮", path: "/home/button" },
                 { name: "iocn图标", path: "/home/icon" },
                 { name: "image图片", path: "/home/image" },
+=======
+                { name: 'transition内置过渡', path: '/home/transition' },
+                { name: 'image图片', path: '/home/image' },
+                { name: 'input输入框', path: '/home/input' },
+                { name: 'checkbox复选框', path: '/home/checkbox' },
+                { name: 'button按钮', path: '/home/button' },
+                { name: 'iocn图标', path: '/home/icon' },
+                { name: 'navbar导航', path: '/home/navbar' },
+                { name: 'tabbar分类栏', path: '/home/tabbar' },
+                { name: 'notice消息通知', path: '/home/notice' },
+                { name: 'popup弹出层', path: '/home/popup' },
+>>>>>>> de6225293a974155a5ee7dc5fadbb8635608911a
             ],
-        };
+        }
     },
     methods: {
         goPage(path) {
-            if (this.$route.path == path || !path) return;
-            this.$router.replace(path);
+            if (this.$route.path == path || !path) return
+            this.$router.replace(path)
         },
     },
-};
+}
 </script>
 <style lang="less" scoped>
 .home {
@@ -104,35 +140,22 @@ export default {
                 font-weight: bold;
                 position: relative;
                 transition: all 0.2s ease;
-            }
-            .menu-item::after {
-                content: " ";
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                width: 0;
-                height: 2px;
-                transform: translateX(-50%);
-                transition: all 0.2s ease;
+                margin-bottom: 6px;
             }
             .menu-item:hover {
-                background: rgba(0, 0, 0, 0.05);
                 color: #1cd8d2;
+                background: rgba(0, 0, 0, 0.05);
                 border-radius: 5px;
             }
             .menu-item:active {
-                transform: scale(0.9);
-            }
-            .menu-item:hover::after {
-                width: 100%;
-                background: #1cd8d2;
+                transform: scale(0.95);
             }
             .menu-active {
                 position: relative;
                 color: #1cd8d2 !important;
             }
             .menu-active::before {
-                content: " ";
+                content: ' ';
                 position: absolute;
                 background: #1cd8d2;
                 right: 0;
@@ -170,6 +193,7 @@ export default {
                     font-size: 16px;
                     font-weight: bold;
                     color: #333;
+                    position: relative;
                 }
                 .body {
                     height: calc(100% - 50px);
@@ -194,5 +218,12 @@ export default {
 }
 .scoll-bar::-webkit-scrollbar {
     width: 0px;
+}
+.back-btn {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 </style>

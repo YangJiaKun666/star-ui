@@ -1,9 +1,9 @@
 /*
     引入其他less文件
 */
-@import "./icon-font/less/font-awesome.less";
-@import "./vue-transition/index.less";
-@import "./animation/index.less";
+@import './icon-font/less/font-awesome.less';
+@import './vue-transition/index.less';
+@import './animation/index.less';
 
 /*
     全局文字风格：
@@ -23,145 +23,157 @@
 	@fActiveColor：激活时文字颜色
 */
 .custom(@backColor: #8dc63f, @fColor: #333, @fActiveColor: #8dc63f) {
-	// 背景颜色
-	.star-background {
-		background: @backColor !important;
-	}
-	// 文字颜色
-	.star-color {
-		color: @fColor;
-	}
-	.star-active-color {
-		color: @fActiveColor !important;
-		i {
-			color: @fActiveColor;
-		}
-	}
-	// 输入框组件主题
-	.star-input-box {
-		input {
-			color: @fColor;
-		}
-		.star-default-line {
-			background: @backColor;
-			filter: grayscale(1);
-		}
-	}
-	// 按钮组件主题
-	.star-button-box {
-		button {
-			color: @fColor;
-		}
-		// primary->主题背景色，白色字体
-		.star-primary {
-			background: @backColor;
-			border: 0 !important;
-			color: #fff !important;
-			.star-icon-color {
-				color: #fff;
-			}
-		}
-		// success->绿色背景色，白色字体
-		.star-success {
-			background: #67c23a;
-			border: 0 !important;
-			color: #fff !important;
-			.star-icon-color {
-				color: #fff;
-			}
-		}
-		// error->红色背景色，白色字体
-		.star-error {
-			background: #ee0a24;
-			border: 0 !important;
-			color: #fff !important;
-			.star-icon-color {
-				color: #fff;
-			}
-		}
-		// warning->黄色色背景色，白色字体
-		.star-warning {
-			background: #ff976a;
-			border: 0 !important;
-			color: #fff !important;
-			.star-icon-color {
-				color: #fff;
-			}
-		}
-	}
+    // 背景颜色
+    .star-background {
+        background: @backColor !important;
+    }
+    // 文字颜色
+    .star-color {
+        color: @fColor;
+    }
+    .star-active-color {
+        color: @fActiveColor !important;
+        i {
+            color: @fActiveColor;
+        }
+    }
+    // 输入框组件主题
+    .star-input-box {
+        input {
+            color: @fColor;
+        }
+        .star-default-line {
+            background: @backColor;
+            filter: grayscale(1);
+        }
+    }
+    // 按钮组件主题
+    .star-button-box,
+    .star-notice {
+        button {
+            color: @fColor;
+        }
+        // primary->主题背景色，白色字体
+        .star-primary {
+            background: @backColor;
+            border: 0 !important;
+            color: #fff !important;
+            .star-icon-color {
+                color: #fff;
+            }
+        }
+        // success->绿色背景色，白色字体
+        .star-success {
+            background: #67c23a;
+            border: 0 !important;
+            color: #fff !important;
+            .star-icon-color {
+                color: #fff;
+            }
+        }
+        // error->红色背景色，白色字体
+        .star-error {
+            background: #ee0a24;
+            border: 0 !important;
+            color: #fff !important;
+            .star-icon-color {
+                color: #fff;
+            }
+        }
+        // warning->黄色色背景色，白色字体
+        .star-warning {
+            background: #ff976a;
+            border: 0 !important;
+            color: #fff !important;
+            .star-icon-color {
+                color: #fff;
+            }
+        }
+    }
 }
 
 /*
 	主题颜色
 */
 .star-theme-custom {
-	.custom(var(--backColor, linear-gradient(to right, #1cd8d2, #93edc7)), var(--fColor, #333), var(--fActiveColor, #1cd8d2));
+    .custom(
+        var(--backColor, linear-gradient(to right, #1cd8d2, #93edc7)),
+        var(--fColor, #333),
+        var(--fActiveColor, #1cd8d2)
+    );
 }
 
 /*
     全局样式class
 */
+
 // 全局默认文字大小
 // * {
 // 	font-size: @subTitleSize;
 // }
+
 // flex布局
 .star-flex {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 // 文字内容一行展示，超出...
 .star-text-one {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 // 文字类容两行展示，超出...
 .star-text-tow {
-	word-break: break-all;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-	line-clamp: 2;
-	-webkit-box-orient: vertical;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 // 按钮点击特效
 .star-block-click {
-	position: relative;
+    position: relative;
 }
 .star-block-click::after {
-	height: 100%;
-	width: 100%;
-	content: " ";
-	top: 0;
-	left: 0;
-	position: absolute;
-	transition: all 0.2s ease;
+    height: 100%;
+    width: 100%;
+    content: ' ';
+    top: 0;
+    left: 0;
+    position: absolute;
+    transition: all 0.2s ease;
 }
 .star-block-click:active::after {
-	background: rgba(0, 0, 0, 0.15);
-	border-radius: 10px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
 }
 // 输入框全局样式
 input,
 button {
-	box-sizing: border-box;
-	border: none;
-	margin: 0;
-	padding: 0;
-	outline: none;
-	background: transparent;
-	font-size: @subTitleSize;
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    background: transparent;
+    font-size: @subTitleSize;
 }
 input::-webkit-input-placeholder {
-	color: #999999;
-	font-size: @subTitleSize;
+    color: #999999;
+    font-size: @subTitleSize;
 }
 input:disabled {
-	color: #999;
+    color: #999;
 }
 
 .fa-circle-o-notch {
-	animation: loading 1s linear infinite;
+    animation: loading 1s linear infinite;
+}
+
+.star-navbar,
+.star-navbar-item {
+    font-size: 12px;
 }
