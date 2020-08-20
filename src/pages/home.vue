@@ -54,11 +54,11 @@ export default {
                 { name: "颜色主题", path: "/home/theme" },
             ],
             componentsMenus: [
-                { name: "image图片", path: "/home/image" },
                 { name: "input输入框", path: "/home/input" },
                 { name: "checkbox复选框", path: "/home/checkbox" },
                 { name: "button按钮", path: "/home/button" },
                 { name: "iocn图标", path: "/home/icon" },
+                { name: "image图片", path: "/home/image" },
             ],
         };
     },
