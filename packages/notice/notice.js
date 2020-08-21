@@ -2,23 +2,20 @@ import Vue from 'vue'
 import Main from './notice.vue'
 let NoticeConstructor = Vue.extend(Main)
 
-const Notice = function(options) {
+const Notice = function (options) {
     if (Vue.prototype.$isServer) return
     options = options || {}
     if (typeof options === 'string') {
         options = {
             message: options,
-            type: 'primary',
-            target: 'body',
+            type: '',
         }
     }
     if (!options.message) return
     let noticeDOM = new NoticeConstructor({
         data: options,
     }).$mount()
-    let targetDOM = document.querySelector(options.target || 'body')
-    targetDOM.style.position = 'relative'
-    targetDOM.appendChild(noticeDOM.$el)
+    document.body.appendChild(noticeDOM.$el)
     noticeDOM.showNotice = true
     let timer = setTimeout(() => {
         noticeDOM.showNotice = false

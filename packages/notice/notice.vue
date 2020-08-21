@@ -1,36 +1,34 @@
 <template>
     <star-transition name="star-transform-y">
         <div class="star-notice" v-show="showNotice">
-            <div class="star-notice__box" :class="getBackground">
-                {{ message }}
-            </div>
+            <div class="star-notice__box" :class="getBackground">{{ message }}</div>
         </div>
     </star-transition>
 </template>
 <script>
 export default {
-    name: 'starNotice',
+    name: "starNotice",
     data() {
         return {
             showNotice: false,
-            message: '',
-            type: '',
-        }
+            message: "",
+            type: "",
+        };
     },
     computed: {
         getBackground() {
             if (this.type) {
-                return `star-${this.type}`
+                return `star-${this.type}`;
             } else {
-                return 'star-info'
+                return "star-info";
             }
         },
     },
-}
+};
 </script>
 <style lang="less" scoped>
 .star-notice {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
