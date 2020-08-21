@@ -59,21 +59,63 @@
 .star-slibe-right-leave-active {
     animation: slibe-right 0.2s ease;
 }
-// star-transform-y
-.star-transform-y-enter,
-.star-transform-y-leave-to {
-    transform: translateY(-20px);
+// star-fade-left
+.star-fade-left-enter,
+.star-fade-left-leave-to {
+    transform: translateX(-100%);
     opacity: 0;
 }
-.star-transform-y-enter-to,
-.star-transform-y-leave {
+.star-fade-left-enter-to,
+.star-fade-left-leave {
+    transform: translateX(0);
+    opacity: 1;
+}
+.star-fade-left-enter-active,
+.star-fade-left-leave-active {
+    transition: all 0.3s ease-out;
+}
+// star-fade-right
+.star-fade-right-enter,
+.star-fade-right-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
+}
+.star-fade-right-enter-to,
+.star-fade-right-leave {
+    transform: translateX(0);
+    opacity: 1;
+}
+.star-fade-right-enter-active,
+.star-fade-right-leave-active {
+    transition: all 0.3s ease-out;
+}
+// star-fade-top
+.star-fade-top-enter,
+.star-fade-top-leave-to {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+.star-fade-top-enter-to,
+.star-fade-top-leave {
     transform: translateY(0);
     opacity: 1;
 }
-.star-transform-y-enter-active,
-.star-transform-y-leave-active {
+.star-fade-top-enter-active,
+.star-fade-top-leave-active {
     transition: all 0.2s ease;
 }
-.star-transform-y-enter-active {
-    transition-delay: 0.2s;
+// star-fade-bottom
+.star-fade-bottom-enter,
+.star-fade-bottom-leave-to {
+    transform: translateY(100%);
+    opacity: 0;
+}
+.star-fade-bottom-enter-to,
+.star-fade-bottom-leave {
+    transform: translateY(0);
+    opacity: 1;
+}
+.star-fade-bottom-enter-active,
+.star-fade-bottom-leave-active {
+    transition: all 0.2s ease;
 }

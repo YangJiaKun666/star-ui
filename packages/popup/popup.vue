@@ -3,15 +3,14 @@
         <div
             v-show="$attrs.value"
             @click="onClose"
-            :class="[
-                'star-popup',
-                `star-${position}`,
-                filter && 'star-filter',
-                padding && 'star-padding',
-            ]"
+            :class="['star-popup', filter && 'star-filter']"
         >
-            <star-transition name="star-transform-y">
-                <div @click.stop v-if="$attrs.value" :style="{ width: '100%' }">
+            <star-transition :name="`star-fade-${transitionName}`">
+                <div
+                    @click.stop
+                    v-if="$attrs.value"
+                    :class="['popup-box', `star-${position}`]"
+                >
                     <slot />
                 </div>
             </star-transition>
@@ -33,9 +32,19 @@ export default {
             type: String,
             default: 'center',
         },
-        padding: {
-            type: Boolean,
-            default: false,
+    },
+    watch: {
+        position(val) {
+            console.log(val)
+        },
+    },
+    computed: {
+        transitionName() {
+            if (this.position == 'center') {
+                return 'fade'
+            } else {
+                return this.position
+            }
         },
     },
     methods: {
@@ -54,23 +63,37 @@ export default {
     width: 100%;
     height: 100%;
     z-index: 100;
-    display: flex;
-    justify-content: center;
     background: rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-}
-.star-padding {
-    padding: 20px;
 }
 .star-filter {
     backdrop-filter: blur(8px);
     background: rgba(225, 225, 225, 0.2);
 }
+.popup-box {
+    position: absolute;
+    width: 100%;
+}
+.star-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .star-top {
-    align-items: flex-start;
+    top: 0;
+    left: 0;
 }
 .star-bottom {
-    align-items: flex-end;
+    bottom: 0;
+    left: 0;
+}
+.star-left {
+    top: 0;
+    left: 0;
+}
+.star-right {
+    top: 0;
+    right: 0;
 }
 .star-center {
     align-items: center;

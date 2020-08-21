@@ -29,79 +29,79 @@ const routes = [
     {
         path: '/',
         name: 'index',
-        redirect: '/home/install'
+        redirect: '/home/install',
     },
     {
         path: '/home/install',
         name: 'install',
         meta: { name: 'star-ui' },
-        component: comIndex
+        component: comIndex,
     },
     {
         path: '/home/theme',
         name: 'theme',
         meta: { name: 'star-ui' },
-        component: comIndex
+        component: comIndex,
     },
     {
         path: '/home/transition',
         name: 'transition-demo',
         meta: { name: 'star-transition' },
-        component: transitionCom
+        component: transitionCom,
     },
     {
         path: '/home/input',
         name: 'input-demo',
         meta: { name: 'star-input' },
-        component: inputCom
+        component: inputCom,
     },
     {
         path: '/home/button',
         name: 'button-demo',
         meta: { name: 'star-button' },
-        component: buttonCom
+        component: buttonCom,
     },
     {
         path: '/home/image',
         name: 'image-demo',
         meta: { name: 'star-image' },
-        component: imageCom
+        component: imageCom,
     },
     {
         path: '/home/icon',
         name: 'icon-demo',
         meta: { name: 'star-icon' },
-        component: iconCom
+        component: iconCom,
     },
     {
         path: '/home/checkbox',
         name: 'checkbox-demo',
         meta: { name: 'star-checkbox' },
-        component: checkboxCom
+        component: checkboxCom,
     },
     {
         path: '/home/navbar',
         name: 'navbar-demo',
         meta: { name: 'star-navbar' },
-        component: navbarCom
+        component: navbarCom,
     },
     {
         path: '/home/tabbar',
         name: 'tabbar-demo',
         meta: { name: 'star-tab' },
-        components: tabCom
+        component: tabCom,
     },
     {
         path: '/home/notice',
         name: 'notice-demo',
         meta: { name: 'star-notice' },
-        component: noticeCom
+        component: noticeCom,
     },
     {
         path: '/home/popup',
         name: 'popup-demo',
         meta: { name: 'star-popup' },
-        component: popupCom
+        component: popupCom,
     },
 ]
 

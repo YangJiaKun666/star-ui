@@ -2,7 +2,7 @@
     <div>
         <p class="com-p">基本用法</p>
         <div class="com-card">
-            <div :style="{ display: 'flex',	justifyContent: 'center' }">
+            <div :style="{ display: 'flex', justifyContent: 'center' }">
                 <star-image
                     src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597561773387&di=a7fcfe1c6c573ead1587c65d5bd155cb&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Fe%2F5791807c25be0.jpg"
                 ></star-image>
@@ -10,11 +10,15 @@
         </div>
         <p class="com-p">加载失败</p>
         <div class="com-card">
-            <div :style="{ display: 'flex',	justifyContent: 'space-around' }">
+            <div :style="{ display: 'flex', justifyContent: 'space-around' }">
                 <star-image src="xx.png"></star-image>
                 <star-image src="xx.png">
                     <template #error>
-                        <star-icon name="picture-o" color="#cdcdcd" size="20"></star-icon>
+                        <star-icon
+                            name="picture-o"
+                            color="#cdcdcd"
+                            size="20"
+                        ></star-icon>
                     </template>
                 </star-image>
             </div>

@@ -31,9 +31,10 @@ export default {
                 { name: 'star-fade', value: true },
                 { name: 'star-fade-scale', value: true },
                 { name: 'star-stopandgo', value: true },
-                { name: 'star-slibe-left', value: true },
-                { name: 'star-slibe-right', value: true },
-                { name: 'star-transform-y', value: true },
+                { name: 'star-fade-left', value: true },
+                { name: 'star-fade-right', value: true },
+                { name: 'star-fade-top', value: true },
+                { name: 'star-fade-bottom', value: true },
             ],
         }
     },

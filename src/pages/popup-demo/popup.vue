@@ -9,16 +9,19 @@
                 >开启模糊背景</star-button
             >
             <star-button type="primary" @click="showPopupPosition('center')"
-                >内容居中</star-button
+                >居中弹出</star-button
             >
             <star-button type="primary" @click="showPopupPosition('top')"
-                >内容置顶</star-button
+                >顶部弹出</star-button
             >
             <star-button type="primary" @click="showPopupPosition('bottom')"
-                >内容置底</star-button
+                >底部弹出</star-button
             >
-            <star-button type="primary" @click="showPopupPadding"
-                >添加内边距</star-button
+            <star-button type="primary" @click="showPopupPosition('left')"
+                >左侧弹出</star-button
+            >
+            <star-button type="primary" @click="showPopupPosition('right')"
+                >右侧弹出</star-button
             >
         </div>
         <star-popup v-model="showPopup1" :filter="filter"></star-popup>

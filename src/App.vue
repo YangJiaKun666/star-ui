@@ -13,7 +13,7 @@
                 {{ $route.meta.name }}
             </div>
             <div class="body scoll-bar">
-                <star-transition name="star-transform-y">
+                <star-transition name="star-fade">
                     <router-view></router-view>
                 </star-transition>
             </div>
@@ -23,11 +23,11 @@
 
 <script>
 export default {
-    name: "App",
+    name: 'App',
     data() {
-        return {};
+        return {}
     },
-};
+}
 </script>
 
 <style lang="less">
