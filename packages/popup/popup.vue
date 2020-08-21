@@ -9,9 +9,16 @@
                 <div
                     @click.stop
                     v-if="$attrs.value"
-                    :class="['popup-box', `star-${position}`]"
+                    :class="[
+                        'popup-box',
+                        `star-${position}`,
+                        padding && 'star-padding',
+                    ]"
+                    :style="size"
                 >
-                    <slot />
+                    <div class="star-popup-content">
+                        <slot />
+                    </div>
                 </div>
             </star-transition>
         </div>
@@ -32,10 +39,15 @@ export default {
             type: String,
             default: 'center',
         },
-    },
-    watch: {
-        position(val) {
-            console.log(val)
+        padding: {
+            type: Boolean,
+            default: false,
+        },
+        size: {
+            type: Object,
+            default: () => {
+                return { width: '', height: '' }
+            },
         },
     },
     computed: {
@@ -65,6 +77,7 @@ export default {
     z-index: 100;
     background: rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
+    overflow: hidden;
 }
 .star-filter {
     backdrop-filter: blur(8px);
@@ -72,7 +85,13 @@ export default {
 }
 .popup-box {
     position: absolute;
-    width: 100%;
+    box-sizing: border-box;
+    .star-popup-content {
+        height: 100%;
+        width: 100%;
+        background: #fff;
+        border-radius: 10px;
+    }
 }
 .star-center {
     top: 50%;
@@ -97,5 +116,8 @@ export default {
 }
 .star-center {
     align-items: center;
+}
+.star-padding {
+    padding: 16px;
 }
 </style>

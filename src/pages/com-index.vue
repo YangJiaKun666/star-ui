@@ -40,6 +40,7 @@ export default {
                 { label: 'tabbar分类栏', path: '/home/tabbar' },
                 { label: 'notice消息提示', path: '/home/notice' },
                 { label: 'popup弹出层', path: '/home/popup' },
+                { label: 'actionSheet操作面板', path: '/home/action-sheet' },
             ],
         }
     },

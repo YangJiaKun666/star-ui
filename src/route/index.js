@@ -22,6 +22,8 @@ import tabCom from '../pages/tab-demo/tab'
 import noticeCom from '../pages/notice-demo/notice'
 // 弹出层
 import popupCom from '../pages/popup-demo/popup'
+// 操作面板
+import actionSheetCom from '../pages/action-sheet-demo/action-sheet'
 
 Vue.use(VueRouter)
 
@@ -102,6 +104,12 @@ const routes = [
         name: 'popup-demo',
         meta: { name: 'star-popup' },
         component: popupCom,
+    },
+    {
+        path: '/home/action-sheet',
+        name: 'action-sheet-demo',
+        meta: { name: 'star-action-sheet' },
+        component: actionSheetCom,
     },
 ]
 

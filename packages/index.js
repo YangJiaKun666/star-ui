@@ -13,6 +13,7 @@ import starCarouselItem from './carousel-item/carousel-item.vue'
 import starImage from './image/image.vue'
 import starTransition from './transition/transition.vue'
 import starPopup from './popup/popup.vue'
+import starActionSheet from './action-sheet/action-sheet.vue'
 
 // 消息提示，请提示，二次确认弹框
 import starNotice from './notice/notice.js'
@@ -31,6 +32,7 @@ const components = [
     starImage,
     starTransition,
     starPopup,
+    starActionSheet,
 ]
 const install = function(Vue, options = {}) {
     Vue.nextTick(() => {
@@ -67,4 +69,5 @@ export default {
     starImage,
     starTransition,
     starPopup,
+    starActionSheet,
 }

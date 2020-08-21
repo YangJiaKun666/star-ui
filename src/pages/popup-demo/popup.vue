@@ -1,5 +1,5 @@
 <template>
-    <div style="position:relative;height: 100%">
+    <div>
         <p class="com-p">使用方法</p>
         <div class="com-card">
             <star-button type="primary" @click="showPopupDefault"
@@ -25,11 +25,12 @@
             >
         </div>
         <star-popup v-model="showPopup1" :filter="filter"></star-popup>
-        <star-popup v-model="showPopup2" :position="position">
+        <star-popup
+            :size="{ width: '100%', height: '60%' }"
+            v-model="showPopup2"
+            :position="position"
+        >
             <div class="box">自定义内容</div>
-        </star-popup>
-        <star-popup v-model="showPopup3" :padding="true">
-            <div class="box" :style="{ borderRadius: '10px' }">自定义内容</div>
         </star-popup>
     </div>
 </template>
@@ -39,7 +40,6 @@ export default {
         return {
             showPopup1: false,
             showPopup2: false,
-            showPopup3: false,
             filter: false,
             position: 'center',
         }
@@ -57,9 +57,6 @@ export default {
             this.showPopup2 = true
             this.position = position
         },
-        showPopupPadding() {
-            this.showPopup3 = true
-        },
     },
 }
 </script>
@@ -71,10 +68,10 @@ export default {
     justify-content: space-between;
 }
 .box {
-    height: 300px;
+    height: 100%;
     width: 100%;
-    background: #fff;
-    text-align: center;
-    line-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>
