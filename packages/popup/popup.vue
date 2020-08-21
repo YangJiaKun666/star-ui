@@ -1,14 +1,10 @@
 <template>
     <star-transition name="star-fade">
-        <div
-            v-show="$attrs.value"
-            @click="onClose"
-            :class="['star-popup', filter && 'star-filter']"
-        >
+        <div v-show="showPopup" @click="onClose" :class="['star-popup', filter && 'star-filter']">
             <star-transition :name="`star-fade-${transitionName}`">
                 <div
                     @click.stop
-                    v-if="$attrs.value"
+                    v-if="showPopup"
                     :class="[
                         'popup-box',
                         `star-${position}`,
@@ -26,18 +22,20 @@
 </template>
 <script>
 export default {
-    name: 'starPopup',
+    name: "starPopup",
     model: {
-        event: 'close',
+        prop: "showPopup",
+        event: "hide",
     },
     props: {
+        showPopup: Boolean,
         filter: {
             type: Boolean,
             default: false,
         },
         position: {
             type: String,
-            default: 'center',
+            default: "center",
         },
         padding: {
             type: Boolean,
@@ -46,26 +44,26 @@ export default {
         size: {
             type: Object,
             default: () => {
-                return { width: '', height: '' }
+                return { width: "", height: "" };
             },
         },
     },
     computed: {
         transitionName() {
-            if (this.position == 'center') {
-                return 'fade'
+            if (this.position == "center") {
+                return "fade";
             } else {
-                return this.position
+                return this.position;
             }
         },
     },
     methods: {
         onClose() {
-            this.$attrs.value = false
-            this.$emit('close')
+            this.$emit("hide", false);
+            this.$emit("close");
         },
     },
-}
+};
 </script>
 <style lang="less" scoped>
 .star-popup {
@@ -75,13 +73,13 @@ export default {
     width: 100%;
     height: 100%;
     z-index: 100;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.4);
     box-sizing: border-box;
     overflow: hidden;
 }
 .star-filter {
     backdrop-filter: blur(8px);
-    background: rgba(225, 225, 225, 0.2);
+    background: rgba(0, 0, 0, 0.2);
 }
 .popup-box {
     position: absolute;

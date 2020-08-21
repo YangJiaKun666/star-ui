@@ -2,27 +2,13 @@
     <div>
         <p class="com-p">使用方法</p>
         <div class="com-card">
-            <star-button type="primary" @click="showPopupDefault"
-                >打开弹窗</star-button
-            >
-            <star-button type="primary" @click="showPopupFilter"
-                >开启模糊背景</star-button
-            >
-            <star-button type="primary" @click="showPopupPosition('center')"
-                >居中弹出</star-button
-            >
-            <star-button type="primary" @click="showPopupPosition('top')"
-                >顶部弹出</star-button
-            >
-            <star-button type="primary" @click="showPopupPosition('bottom')"
-                >底部弹出</star-button
-            >
-            <star-button type="primary" @click="showPopupPosition('left')"
-                >左侧弹出</star-button
-            >
-            <star-button type="primary" @click="showPopupPosition('right')"
-                >右侧弹出</star-button
-            >
+            <star-button type="primary" @click="showPopupDefault">打开弹窗</star-button>
+            <star-button type="primary" @click="showPopupFilter">开启模糊背景</star-button>
+            <star-button type="primary" @click="showPopupPosition('center')">内容居中弹出</star-button>
+            <star-button type="primary" @click="showPopupPosition('top')">内容顶部弹出</star-button>
+            <star-button type="primary" @click="showPopupPosition('bottom')">内容底部弹出</star-button>
+            <star-button type="primary" @click="showPopupPosition('left')">内容左侧弹出</star-button>
+            <star-button type="primary" @click="showPopupPosition('right')">内容右侧弹出</star-button>
         </div>
         <star-popup v-model="showPopup1" :filter="filter"></star-popup>
         <star-popup
@@ -41,24 +27,24 @@ export default {
             showPopup1: false,
             showPopup2: false,
             filter: false,
-            position: 'center',
-        }
+            position: "center",
+        };
     },
     methods: {
         showPopupDefault() {
-            this.showPopup1 = true
-            this.filter = false
+            this.showPopup1 = true;
+            this.filter = false;
         },
         showPopupFilter() {
-            this.showPopup1 = true
-            this.filter = true
+            this.showPopup1 = true;
+            this.filter = true;
         },
         showPopupPosition(position) {
-            this.showPopup2 = true
-            this.position = position
+            this.showPopup2 = true;
+            this.position = position;
         },
     },
-}
+};
 </script>
 <style lang="less" scoped>
 .com-card {

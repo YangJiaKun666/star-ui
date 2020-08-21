@@ -1,17 +1,17 @@
 .com-card {
-    background: #fff;
-    padding: 12px;
+	background: #fff;
+	padding: 12px;
 }
 .com-p {
-    padding: 0 12px;
-    font-size: 20px;
-    margin: 0;
-    line-height: 45px;
+	padding: 0 12px;
+	font-size: 16px;
+	margin: 0;
+	line-height: 40px;
 }
 h1,
 h2,
 h3,
 p {
-    font-weight: 500;
-    color: #333;
+	font-weight: 500;
+	color: #333;
 }
