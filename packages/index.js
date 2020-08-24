@@ -14,6 +14,7 @@ import starImage from './image/image.vue'
 import starTransition from './transition/transition.vue'
 import starPopup from './popup/popup.vue'
 import starActionSheet from './action-sheet/action-sheet.vue'
+import starCalendar from './calendar/calendar.vue'
 
 // 消息提示，请提示，二次确认弹框
 import starNotice from './notice/notice.js'
@@ -33,8 +34,9 @@ const components = [
     starTransition,
     starPopup,
     starActionSheet,
+    starCalendar
 ]
-const install = function(Vue, options = {}) {
+const install = function (Vue, options = {}) {
     Vue.nextTick(() => {
         //  自定义主题
         // let app = document.getElementById('app')
@@ -70,4 +72,5 @@ export default {
     starTransition,
     starPopup,
     starActionSheet,
+    starCalendar
 }

@@ -3,26 +3,26 @@
         <p class="com-p">基本用法</p>
         <div class="com-card">
             <star-button
-                @click="()=>{show = true;filter=true;padding=true;showCloseButton=true}"
+                @click="()=>{show = true;filter=true;padding=true;showCloseButton=false}"
             >打开面板</star-button>
         </div>
         <p class="com-p">关闭背景模糊</p>
         <div class="com-card">
             <star-button
-                @click="()=>{show = true;filter=false;padding=true;showCloseButton=true}"
+                @click="()=>{show = true;filter=false;padding=true;showCloseButton=false}"
             >关闭背景模糊</star-button>
         </div>
         <p class="com-p">元素宽度铺满窗口</p>
         <div class="com-card">
             <star-button
-                @click="()=>{show = true;filter=true;padding=false;showCloseButton=true}"
+                @click="()=>{show = true;filter=true;padding=false;showCloseButton=false}"
             >铺满窗口</star-button>
         </div>
-        <p class="com-p">隐藏取消按钮</p>
+        <p class="com-p">显示取消按钮</p>
         <div class="com-card">
             <star-button
-                @click="()=>{show = true;filter=true;padding=true;showCloseButton=false}"
-            >隐藏取消按钮</star-button>
+                @click="()=>{show = true;filter=true;padding=true;showCloseButton=true}"
+            >显示取消按钮</star-button>
         </div>
         <star-action-sheet
             v-model="show"

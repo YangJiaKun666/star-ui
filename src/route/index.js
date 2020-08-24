@@ -24,6 +24,8 @@ import noticeCom from '../pages/notice-demo/notice'
 import popupCom from '../pages/popup-demo/popup'
 // 操作面板
 import actionSheetCom from '../pages/action-sheet-demo/action-sheet'
+// 日历
+import calendarCom from '../pages/calendar-demo/calendar'
 
 Vue.use(VueRouter)
 
@@ -110,6 +112,12 @@ const routes = [
         name: 'action-sheet-demo',
         meta: { name: 'star-action-sheet' },
         component: actionSheetCom,
+    },
+    {
+        path: '/home/calendar',
+        name: 'calendar-demo',
+        meta: { name: 'star-calendar' },
+        component: calendarCom,
     },
 ]
 
