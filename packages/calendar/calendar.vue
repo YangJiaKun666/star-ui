@@ -63,6 +63,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        rememberBefore: {
+            type: Boolean,
+            default: false,
+        },
         starYear: {
             type: Date,
             default: () => {
@@ -129,6 +133,9 @@ export default {
             let year = this.formatDate(this.dateTime, "yyyy");
             let month = this.formatDate(this.dateTime, "MM");
             let dateTime = "";
+            if(!this.rememberBefore) {
+                this.checkData = null
+            }
             switch (type) {
                 case "addYear":
                     month = 1;
@@ -169,6 +176,7 @@ export default {
             if (!this.multiple) {
                 this.checkData = date;
             } else {
+                if(this.checkData == null) this.checkData = []
                 if (this.checkData.findIndex((ele) => ele == date) == -1) {
                     this.checkData.push(date);
                 } else {
@@ -178,10 +186,11 @@ export default {
                     );
                 }
             }
-            this.$emit("select-date", this.checkData);
+            this.$emit("change-date", this.checkData);
         },
         // 判断是否为选中状态
         isChecked(val) {
+            if(this.checkData == null) return
             if (!this.multiple) {
                 return val == this.checkData;
             } else {

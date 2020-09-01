@@ -34,6 +34,7 @@ export default {
                 { label: "popup弹出层", path: "/home/popup" },
                 { label: "actionSheet操作面板", path: "/home/action-sheet" },
                 { label: "calendar日历", path: "/home/calendar" },
+                { label: "carousel轮播", path: "/home/carousel" },
             ],
         };
     },

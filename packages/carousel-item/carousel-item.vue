@@ -1,44 +1,15 @@
 <template>
-    <li
-        :class="['star-carousel-item',active == index ? 'star-active-width' : 'star-default-width']"
-        :style="parent.transitionType"
-    >
+    <div class="star-carouel-item">
         <slot />
-    </li>
+    </div>
 </template>
 <script>
 export default {
-    name: "starCarouselItem",
-    computed: {
-        parent() {
-            return this.$parent;
-        },
-        index() {
-            return this.parent.$children.indexOf(this);
-        },
-        active() {
-            return this.parent.active;
-        },
-    },
-};
+    name: 'starCarouselItem'
+}
 </script>
 <style lang="less" scoped>
-.star-carousel-item {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-.star-active-width {
-    width: 100%;
-    right: 0;
-    z-index: inherit;
-}
-.star-default-width {
-    width: 0;
-    left: 0;
-    z-index: -1;
-}
+// .star-carouel-item {
+//     width: 100%;
+// }
 </style>

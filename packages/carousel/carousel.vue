@@ -1,111 +1,131 @@
 <template>
-    <div class="star-carousel" :style="{ height: `${height}px` }">
-        <!-- 
-            @touchstart="touchStart($event)"
-            @touchmove="touchMove($event)"
-        @touchend="touchEnd($event)"-->
-        <ul class="star-carousel-imgs">
+    <div class="star-carousel">
+        <div class="star-carousel__box" ref="carouselBox" @touchstart="handlerStart" @touchmove="handlerMove" @touchend="handlerEnd">
             <slot />
-        </ul>
-        <ul class="star-carousel-spots">
-            <li
-                class="star-carousel-spot"
-                :style="transitionType"
-                v-for="(item,index) of carousels"
-                :key="index"
-                :class="active == index && ['star-carousel-current','star-background']"
-            ></li>
-        </ul>
+        </div>
+        <div class="star-carousel__instructions">
+            <div :class="['star-carousel__instructions__box',currentActive == index && 'star-background']" v-for="(item , index) of childCount" :key="index"></div>
+        </div>
     </div>
 </template>
 <script>
 export default {
-    name: "starCarousel",
+    name: 'starCarousel',
     props: {
-        playDuration: {
-            type: [String, Number],
-            default: 3000,
+        duration: {
+            type: [String,Number],
+            default: 3000
         },
-        transitionType: {
-            type: [Object, String],
-            default: () => {
-                return { transition: "all 300ms ease" };
-            },
-        },
-        height: {
-            type: [Number, String],
-            default: 150,
-        },
+        autoPlay: {
+            type: Boolean,
+            default: true
+        }
     },
     data() {
         return {
-            stateTimer: null,
-            carousels: this.$children,
-            active: 0,
-        };
-    },
-    watch: {
-        active(val) {
-            this.$emit("change", val);
-        },
-        playDuration(val) {
-            location.reload();
-        },
+            childCount: 0,
+            carouselBox: null,
+            timeName: null,
+            currentActive: 0,
+            start: 0,
+            move: 0
+        }
     },
     mounted() {
-        this.$nextTick(() => {
-            this.autoPlay();
-        });
+        this.$nextTick(()=>{
+            this.carouselBox = this.$refs.carouselBox
+            this.childCount = this.$children.length
+            if(this.autoPlay) {
+                this.setIntervalFun()
+            }
+        })
     },
     methods: {
-        autoPlay() {
-            this.stateTimer = setInterval(() => {
-                if (this.active < this.carousels.length - 1) {
-                    this.active++;
-                } else {
-                    this.active = 0;
-                }
-            }, Number(this.playDuration));
+        // 当手指触摸开始
+        handlerStart(event) {
+            clearInterval(this.timeName)
+            this.start = event.touches[0].pageX
         },
+        // 当手指移动时
+        handlerMove(event) {
+            let move = event.touches[0].pageX
+            this.move = this.start - event.touches[0].pageX
+            this.setTransfromFun(this.move)
+        },
+        // 当手指触摸结束
+        handlerEnd(event) {
+            console.log(this.move)
+            if(this.move > 100) {
+                this.currentActive ++
+            } else if(this.move < -100) {
+                this.currentActive --
+            }
+            this.setActiveFun()
+            this.setTransfromFun()
+            this.setIntervalFun()
+        },
+        setIntervalFun() {
+            this.timeName = setInterval(()=>{
+                this.currentActive ++
+                this.setActiveFun()
+                this.setTransfromFun()
+            },this.duration)
+        },
+        setActiveFun() {
+            if(this.currentActive >= this.childCount) {
+                this.currentActive = 0
+            } else if(this.currentActive < 0) {
+                this.currentActive = this.childCount - 1
+            }
+        },
+        setTransfromFun(move){
+            if(!move) {
+                this.carouselBox.style.transition = 'all 300ms ease'
+                move = 0
+            } else {
+                this.carouselBox.style.transition = 'all 0ms ease'
+            }
+            let X = `translateX(-${this.currentActive * this.carouselBox.clientWidth + move}px)`
+            console.log(X)
+            this.carouselBox.style.transform = X
+        }
     },
-};
+}
 </script>
 <style lang="less" scoped>
 .star-carousel {
     position: relative;
+    height: 200px;
     width: 100%;
-    overflow: hidden;
-    border-radius: 10px;
-    .star-carousel-imgs,
-    .star-carousel-spots {
-        position: absolute;
-        flex: 1;
-        height: 100%;
-        width: 100%;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    .star-carousel-spots {
-        bottom: 10px;
-        left: 0;
-        height: auto;
+    overflow-x: hidden;
+    &__box {
         display: flex;
+        flex-wrap: nowrap;
+        height: 100%;
+        * {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+    }
+    &__instructions {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        display: flex;
+        z-index: 1;
         align-items: center;
         justify-content: center;
-        .star-carousel-spot {
+        &__box {
             width: 7px;
             height: 7px;
             border-radius: 50%;
-            background: rgba(225, 225, 225, 0.5);
-            margin-right: 20px;
+            background: rgba(225,225,225,0.4);
+            margin-right: 24px;
+            transition: all 500ms ease;
         }
-        .star-carousel-current {
-            width: 20px;
-            border-radius: 20px;
-        }
-        .star-carousel-spot:last-child {
-            margin-right: 0;
+        &__box:last-child {
+            margin: 0;
         }
     }
 }

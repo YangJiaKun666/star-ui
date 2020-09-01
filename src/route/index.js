@@ -26,6 +26,8 @@ import popupCom from '../pages/popup-demo/popup'
 import actionSheetCom from '../pages/action-sheet-demo/action-sheet'
 // 日历
 import calendarCom from '../pages/calendar-demo/calendar'
+// 轮播图
+import carouselCom from '../pages/carousel-demo/carousel'
 
 Vue.use(VueRouter)
 
@@ -118,6 +120,12 @@ const routes = [
         name: 'calendar-demo',
         meta: { name: 'star-calendar' },
         component: calendarCom,
+    },
+    {
+        path: '/home/carousel',
+        name: 'carousel-demo',
+        meta: { name: 'star-carousel' },
+        component: carouselCom,
     },
 ]
 
