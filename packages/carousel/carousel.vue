@@ -93,11 +93,11 @@ export default {
             }
         },
         // 设置位移距离
-        setTransfromFun(move, noTransition) {
+        setTransfromFun(move, transition) {
             // move: 手指滑动时的距离
             // noTransition: 是否需要过渡效果
             if (!move || move == '') move = 0
-            if (noTransition) {
+            if (transition) {
                 this.carouselBox.style.transitionDuration = '300ms'
             } else {
                 this.carouselBox.style.transitionDuration = '0ms'
